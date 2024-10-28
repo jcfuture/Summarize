@@ -1,0 +1,16 @@
+<c3p0-config>
+    <!--使用默认的配置连接池对象-->
+    <defaule-config>
+        <property name = "driverClass">com.mysql.jdbc.Driver</property>
+        <property name = "jdbcUrl">jdbc:mysql://Localhost:3306/db</property>
+        <property name = "user">用户名</property>
+        <property name = "password">密码</property>
+        <!--连接池参数-->
+        <!--初始化申请的连接参数-->
+        <property name = "initialPoolsize">5</property>
+        <!--最大的连接数量-->
+        <property name = "maxpPoolsize">10</property>
+        <!--超时时间（按照毫秒计算）-->
+        <property name = "checkoutTimeout">3000</property>
+    </defaule-config>
+</c3p0-config>
