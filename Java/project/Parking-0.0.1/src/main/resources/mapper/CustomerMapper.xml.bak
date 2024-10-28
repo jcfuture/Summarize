@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parking.dao.CustomerMapper">
+    <select id="getAll" resultType="Customer">
+        select * from customer
+    </select>
+    
+    <delete id="delCustomer">
+        delete from customer where id = #{id}
+    </delete>
+
+    <insert id="InsertCustomer" keyProperty="id">
+        insert into customer (name, tel, licensePlate, extra)
+        values (#{name} , #{tel} , #{licensePlate} , #{extra});
+    </insert>
+
+    <select id="getName" resultType="Customer">
+        select * from customer where name like #{name}
+    </select>
+    <select id="getLicensePlate" resultType="Customer">
+        select * from customer where licensePlate like #{licensePlate}
+    </select>
+
+    <select id="getID" resultType="Customer">
+        select * from customer where id = #{id}
+    </select>
+
+    <update id="updateCustomer">
+        update customer set name = #{name} , tel = #{tel} , licensePlate = #{licensePlate} , extra = #{extra}
+        where id = #{id}
+    </update>
+
+    <select id="getByLicensePlate" resultType="Customer">
+        select * from customer where licensePlate = #{licensePlate}
+    </select>
+</mapper>
