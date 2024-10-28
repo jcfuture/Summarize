@@ -1,102 +1,102 @@
-//#include "basic.h"
-//
-//// »ùÓÚÁÚ½Ó¾ØÕóÊµÏÖµÄÎÞÏòÍ¼Àà
-//class GraphAdjMat
-//{
-//public:
-//	// ¹¹Ôì·½·¨
-//	GraphAdjMat(const std::vector<int>& vertices, const std::vector<std::vector<int>>& edges)
-//	{
-//		// Ìí¼Ó¶¥µã
-//		for (int val : vertices)
-//			addVertex(val);
-//		// Ìí¼Ó±ß
-//		// Çë×¢Òâ£¬edges ÔªËØ´ú±í¶¥µãË÷Òý£¬¼´¶ÔÓ¦ vertices ÔªËØË÷Òý
-//		for (const std::vector<int>& edge : edges)
-//			addEdge(edge[0], edge[1]);
-//	}
-//
-//	// »ñÈ¡¶¥µãÊýÁ¿
-//	int size() const
-//	{
-//		return vertices.size();
-//	}
-//
-//	// Ìí¼Ó¶¥µã
-//	void addVertex(int val)
-//	{
-//		int n = size();
-//		// Ïò¶¥µãÁÐ±íÖÐÌáÄÈ¼ÑÐÂ¶¥µãµÄÖµ
-//		vertices.push_back(val);
-//		// ÔÚÁÚ½Ó¾ØÕóÖÐÌí¼ÓÒ»ÐÐ
-//		adjMat.emplace_back(std::vector<int>(n, 0));
-//		// ÔÚÁÚ½Ó¾ØÕóÖÐÌí¼ÓÒ»ÁÐ
-//		for (std::vector<int>& row : adjMat)
-//			row.push_back(0);
-//	}
-//
-//	// É¾³ý¶¥µã
-//	void removeVertex(int index)
-//	{
-//		if (index >= size())
-//			std::cout << "¶¥µã²»´æÔÚ" << std::endl;
-//		// ÔÚ¶¥µãÁÐ±íÖÐÒÆ³ýË÷Òý index µÄ¶¥µã
-//		vertices.erase(vertices.begin() + index);
-//		// ÔÚÁÚ½Ó¾ØÕóÖÐÉ¾³ýË÷Òý index µÄÐÐ
-//		adjMat.erase(adjMat.begin() + index);
-//		// ÔÚÁÚ½Ó¾ØÕóÖÐÉ¾³ýË÷Òý index µÄÁÐ
-//		for (std::vector<int>& row : adjMat)
-//			row.erase(row.begin() + index);
-//	}
-//
-//	// Ìí¼Ó±ß
-//	// ²ÎÊý i£¬ j ¶ÔÓ¦ vertices ÔªËØË÷Òý
-//	void addEdge(int i, int j)
-//	{
-//		// Ë÷ÒýÔ½½çÓëÏàµÈ´¦Àí
-//		if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-//			std::cout << "¶¥µã²»´æÔÚ" << std::endl;
-//		// ÔÚÎÞÏòÍ¼ÖÐ£¬ÁÚ½Ó¾ØÕó¹ØÓÚÖ÷¶Ô½ÇÏß¶Ô³Æ£¬ ¼ÈÂú×ã£¨i£¬j£© == £¨j£¬i£©
-//		adjMat[i][j] = 1;
-//		adjMat[j][i] = 1;
-//	}
-//
-//	// É¾³ý±ß
-//	// ²ÎÊý i£¬j¶ÔÓ¦ vertices ÔªËØË÷Òý
-//	void removeEdge(int i, int j)
-//	{
-//		// Ë÷ÒýÔ½½çÓëÏàµÈ´¦Àí
-//		if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-//			std::cout << "¶¥µã²»´æÔÚ" << std::endl;
-//		adjMat[i][j] = 0;
-//		adjMat[j][i] = 0;
-//	}
-//
-//	// ´òÓ¡ÁÚ½Ó¾ØÕó
-//	void print()
-//	{
-//		std::cout << "¶¥µãÁÐ±í = ";
-//		printVector(vertices);
-//		std::cout << "ÁÚ½Ó¾ØÕó = " << std::endl;
-//		printVectorMatrix(adjMat);
-//	}
-//
-//	void printVector(std::vector<int> vertices)
-//	{
-//		for (auto& num : vertices)
-//			std::cout << num << " ";
-//	}
-//
-//	void printVectorMatrix(std::vector<std::vector<int>> matrix)
-//	{
-//		for (std::vector<int>& vec : matrix)
-//		{
-//			for (auto& num : vec)
-//				std::cout << "num" << " ";
-//			std::cout << std::endl;
-//		}
-//	}
-//private:
-//	std::vector<int> vertices; // ¶¥µãÁÐ±í£¬ÔªËØ´ú±í¡°¶¥µãÖµ¡±£¬Ë÷Òý´ú±í¡°¶¥µãË÷Òý¡±
-//	std::vector<std::vector<int>> adjMat; // ÁÚ½Ó¾ØÕó£¬ÐÐÁÐË÷Òý¶ÔÓ¦¡°¶¥µãË÷Òý¡±
-//};
+#include "basic.h"
+
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½Êµï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
+class GraphAdjMat
+{
+public:
+	// ï¿½ï¿½ï¿½ì·½ï¿½ï¿½
+	GraphAdjMat(const std::vector<int>& vertices, const std::vector<std::vector<int>>& edges)
+	{
+		// ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
+		for (int val : vertices)
+			addVertex(val);
+		// ï¿½ï¿½ï¿½Ó±ï¿½
+		// ï¿½ï¿½×¢ï¿½â£¬edges Ôªï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ vertices Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		for (const std::vector<int>& edge : edges)
+			addEdge(edge[0], edge[1]);
+	}
+
+	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int size() const
+	{
+		return vertices.size();
+	}
+
+	// ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
+	void addVertex(int val)
+	{
+		int n = size();
+		// ï¿½ò¶¥µï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½Öµ
+		vertices.push_back(val);
+		// ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+		adjMat.emplace_back(std::vector<int>(n, 0));
+		// ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+		for (std::vector<int>& row : adjMat)
+			row.push_back(0);
+	}
+
+	// É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	void removeVertex(int index)
+	{
+		if (index >= size())
+			std::cout << "ï¿½ï¿½ï¿½ã²»ï¿½ï¿½ï¿½ï¿½" << std::endl;
+		// ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ index ï¿½Ä¶ï¿½ï¿½ï¿½
+		vertices.erase(vertices.begin() + index);
+		// ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ index ï¿½ï¿½ï¿½ï¿½
+		adjMat.erase(adjMat.begin() + index);
+		// ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ index ï¿½ï¿½ï¿½ï¿½
+		for (std::vector<int>& row : adjMat)
+			row.erase(row.begin() + index);
+	}
+
+	// ï¿½ï¿½ï¿½Ó±ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ iï¿½ï¿½ j ï¿½ï¿½Ó¦ vertices Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	void addEdge(int i, int j)
+	{
+		// ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½
+		if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+			std::cout << "ï¿½ï¿½ï¿½ã²»ï¿½ï¿½ï¿½ï¿½" << std::endl;
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Ð£ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ß¶Ô³Æ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ã£¨iï¿½ï¿½jï¿½ï¿½ == ï¿½ï¿½jï¿½ï¿½iï¿½ï¿½
+		adjMat[i][j] = 1;
+		adjMat[j][i] = 1;
+	}
+
+	// É¾ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ iï¿½ï¿½jï¿½ï¿½Ó¦ vertices Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	void removeEdge(int i, int j)
+	{
+		// ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½
+		if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+			std::cout << "ï¿½ï¿½ï¿½ã²»ï¿½ï¿½ï¿½ï¿½" << std::endl;
+		adjMat[i][j] = 0;
+		adjMat[j][i] = 0;
+	}
+
+	// ï¿½ï¿½Ó¡ï¿½Ú½Ó¾ï¿½ï¿½ï¿½
+	void print()
+	{
+		std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ = ";
+		printVector(vertices);
+		std::cout << "ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ = " << std::endl;
+		printVectorMatrix(adjMat);
+	}
+
+	void printVector(std::vector<int> vertices)
+	{
+		for (auto& num : vertices)
+			std::cout << num << " ";
+	}
+
+	void printVectorMatrix(std::vector<std::vector<int>> matrix)
+	{
+		for (std::vector<int>& vec : matrix)
+		{
+			for (auto& num : vec)
+				std::cout << "num" << " ";
+			std::cout << std::endl;
+		}
+	}
+private:
+	std::vector<int> vertices; // ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½Ôªï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	std::vector<std::vector<int>> adjMat; // ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+};
